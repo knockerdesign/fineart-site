@@ -1,0 +1,43 @@
+body {
+    background-color: $white;
+}
+
+
+.article-panel, .art-panel, .illust-panel {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.illust-panel, .art-panel {
+    p {
+        margin-bottom: 3px;
+    }
+    a {
+        color: $grey-med;
+        &:hover {
+            color: $white;
+        }
+    }
+}
+
+.art-panel {
+    background-color: $fine-art-bg-col;
+    color: $grey-light;
+}
+
+.illust-panel {
+    color: $grey-light;
+    background-color: $illust-bg-col;
+}
+
+.section-break {
+    margin: 50px 0 80px;
+    height: 1px;
+    background-color: $grey-med;
+}
+
+
+img {
+    width: 100%;
+    height: auto;
+}
