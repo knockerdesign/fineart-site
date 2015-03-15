@@ -23,6 +23,9 @@ body {
 .art-panel {
     background-color: $fine-art-bg-col;
     color: $grey-light;
+    h3 {
+        color: $white;
+    }
 }
 
 .illust-panel {
