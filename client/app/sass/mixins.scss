@@ -1,0 +1,61 @@
+@import "../sass/variables.scss";
+
+
+//create section break
+@mixin section-break ($class-name, $colour1, $colour2, $colour3) {
+    .#{$class-name} {
+        margin: 50px 0 80px 15%;
+        height: 3px;
+        background-color: $colour2;
+        clear: both;
+        width: $section-break-width;
+        position: relative;
+        &:before, &:after {
+            content: "";
+            display: block;
+            width: $section-break-third;
+            height: 3px;
+            background-color: $colour1;
+        }
+        &:after {
+            background-color: $colour3;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+    }
+}
+
+
+
+//responsive image loading
+@mixin resposive-image ($url, $width, $height, $screen-size:0) {
+  @media all and (min-width: $screen-size) {
+    background-image:url($url);
+    background-position: 50% 50%;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    //constrain the div to the image
+    width:$width;
+    height:$height;
+    //set the width and height of the 1px transparent gif to force the div to show % width images
+    img {
+      width:$width;
+      height:$height;
+      display: block;
+    }
+  }
+}
+
+
+
+
+
+//create margin helpers
+@mixin set-margin ($selector) {
+    @each $name, $margin-value in $margin-map {
+        .margin-#{$selector}-#{$name} {
+            margin-#{$selector}: $margin-value;
+        }
+    }
+}

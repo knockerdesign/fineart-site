@@ -1,11 +1,29 @@
 // Colour palette
 
-$white				: #f8f8f8; //set as off-white so artwork is higher contrast
+$white					: #f8f8f8; //set as off-white so artwork is higher contrast
 
-$grey-dark			: #333;
-$grey-med-dark		: #888;
-$grey-med			: #aaa;
-$grey-light			: #eee;
+$grey-dark				: #333;
+$grey-med-dark			: #888;
+$grey-med				: #aaa;
+$grey-light				: #eee;
 
-$illust-bg-col		: #093341;
-$fine-art-bg-col	: $grey-dark;
+$illust-bg-col			: #093341;
+$fine-art-bg-col		: $grey-dark;
+
+
+$section-break-width 	: 70%;
+$section-break-third	: 100% / 3;
+
+$margin-xs				: 10px;
+$margin-sm				: 20px;
+$margin-md				: 40px;
+$margin-lg				: 60px;
+
+
+
+$margin-map: (
+'xs'					: $margin-xs,
+'sm'					: $margin-sm,
+'md'					: $margin-md,
+'lg'					: $margin-lg
+);

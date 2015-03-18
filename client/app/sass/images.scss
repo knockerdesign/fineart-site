@@ -1,0 +1,13 @@
+@import "../sass/variables.scss";
+@import "../sass/mixins.scss";
+
+
+.img-sydneyii {
+  //sm scn image
+  @include resposive-image ('http://www.bostonglobe.com/rf/image_r/Boston/2011-2020/2013/07/25/BostonGlobe.com/National/Images/istock%20mouse%20mice.r.jpg', 100%, auto);
+  //med scn image
+  @include resposive-image ('http://www.helpinghomelesscats.com/images/cat1.jpg', 400px, 200px, $screen-md-min);
+  //lg scn image
+  @include resposive-image ('http://www.vetprofessionals.com/catprofessional/images/home-cat.jpg', 800px, 450px, $screen-lg-min);
+  border: 1px solid #ccc;
+}

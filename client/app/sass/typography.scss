@@ -1,3 +1,7 @@
+@import "../sass/variables.scss";
+@import "../sass/mixins.scss";
+
+
 html { 
     font-size: 62.5%;  /* 10px base for REMS */
 }
@@ -25,7 +29,7 @@ h1 span {
 h2 {
     font-size: 4.5rem;
     margin-bottom: 25px;
-    &.title {
+    &.title-indent {
         text-indent: -21px;
         span {
             color: $grey-med-dark;
@@ -43,4 +47,16 @@ h3 {
 p {
     font-size: 1.3rem;
     margin-bottom: 20px;
+}
+
+.intro {
+    font-size: 2rem;
+    color: $grey-med;
+}
+
+.client {
+    span {
+        font-weight: 600;
+        margin-right: $margin-xs;
+    }
 }
