@@ -18,6 +18,10 @@ body {
             color: $white;
         }
     }
+    //remove bottom margin on last image
+    img:last-of-type {
+        margin-bottom: 0;
+    }
 }
 
 .art-panel {
@@ -36,6 +40,7 @@ body {
 
 // Section break colours
 @include section-break('section-sydney', #b0ac61, #7ba5c2, #727e81);
+@include section-break('section-yvonne', #955634, #82ca99, #efcea8);
 @include section-break('section-sprayground', #b0d233, #35bbdd, #90939d);
 
 

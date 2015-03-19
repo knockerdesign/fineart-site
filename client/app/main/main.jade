@@ -1,3 +1,35 @@
+mixin section-article(panelType, imgUrls, title, media, client, colorStrip)
+  div(class="#{ panelType }")  
+
+    .container
+      .row
+        each val in imgUrls
+          img/(src="#{ val }" class="margin-bottom-lg")
+        aside.col-md-3.col-md-offset-9
+          h3 #{ title }
+          p #{ media }
+
+       
+  .article-panel
+    .container
+      .row
+        .col-md-6.col-md-offset-2.margin-bottom-lg
+          h2.title-indent 
+            span &ldquo;
+            | #{ title }
+            span &rdquo;
+          p.client <span>Client:</span> #{ client }
+            block
+        div(class=" section-#{ colorStrip } ")
+
+
+
+
+
+
+
+
+
 header.navbar
   .container
     h1 Darrell White
@@ -7,92 +39,49 @@ header.navbar
 
 
 
-
-  .art-panel
-    .container
-      .row
-        .img-sydneyii
-          img(src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7")
-
-        img(src="../../assets/images/sydney-1200.png")
-        aside.col-md-3.col-md-offset-9
-          h3 Farewell Sydney
-          p Oil on canvas
-          p: a(href='http://www.waca.com.au/other/news_detail.php?ID=2302' target='_blank') Read about the dedication ceremony
-
-       
-  .article-panel
-    .container
-      .row
-        .col-md-6.col-md-offset-2.margin-bottom-lg
-          h2.title-indent 
-            span &ldquo;
-            | Farewell Sydney
-            span &rdquo;
-          p.client <span>Client:</span> West Australian Cricket Association.
-          p HMAS Sydney II departs Fremantle inner harbour.
-          p The painting was commissioned by the West Australian Cricket Association (WACA) to form part of their HMAS Sydney II Commemorative Display.
-          p This work required a great deal of research to recreate the scene, as accuracy was of the upmost importance for the client. I drilled down into details such as time of day, official weather report, ships alongside, colour schemes of port buildings and even if a woman could have access to North Mole during wartime.
-          p The painting was unveiled 11 November 2011 to coincide with the day, 70 years ago, Sydney departed from Gage Roads
-        
-        
-        .section-sydney
-
-
-
-
-
-  .art-panel
+  // Responsive image code
+    .art-panel
       .container
         .row
-          img/(src="../../assets/images/yvonne.png")
+          .img-sydneyii
+            img(src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7")
+
+          img(src="../../assets/images/sydney-1200.png")
           aside.col-md-3.col-md-offset-9
-            h3 Yvonne
+            h3 Responsive Farewell Sydney
             p Oil on canvas
+            p: a(href='http://www.waca.com.au/other/news_detail.php?ID=2302' target='_blank') Read about the dedication ceremony
 
          
-    .article-panel
-      .container
-        .row
-          .col-md-6.col-md-offset-2.margin-bottom-lg
-            h2.title-indent 
-              span &ldquo;
-              | Yvonne
-              span &rdquo;
-            p.client <span>Client:</span> Private commission.
-            p Details here.
-          
-          
-          .section-sydney
 
 
 
+  // Variables passed are: panelType imgUrls (an array), title, media, client, colorStrip
+  - var imgArray = ['../../assets/images/sydney-1200.png']
+  +section-article('art-panel', imgArray, 'Farewell Sydney', 'Oil on canvas', 'West Australian Cricket Association', 'sydney')
+    p HMAS Sydney II departs Fremantle inner harbour.
+    p The painting was commissioned by the West Australian Cricket Association (WACA) to form part of their HMAS Sydney II Commemorative Display.
+    p This work required a great deal of research to recreate the scene, as accuracy was of the upmost importance for the client. I drilled down into details such as time of day, official weather report, ships alongside, colour schemes of port buildings and even if a woman could have access to North Mole during wartime.
+    p The painting was unveiled 11 November 2011 to coincide with the day, 70 years ago, Sydney departed from Gage Roads
 
 
 
+  - var imgArray = ['http://www.vetprofessionals.com/catprofessional/images/home-cat.jpg', 'http://www.vetprofessionals.com/catprofessional/images/home-cat.jpg']
+  +section-article('art-panel', imgArray, 'Super cats', 'Photography', 'Personal', 'sydney')
+    p I'm part of the article
+    p I'm also part of the story
+    p yeah whatever...
 
 
+  - var imgArray = ['../../assets/images/yvonne.png']
+  +section-article('art-panel', imgArray, 'Yvonne', 'Oil on canvas', 'Private commission', 'yvonne')
+    p.client <span>Client:</span> Private commission.
+    p Details here.
 
-  .illust-panel
-    .container
-      .row
-        img/(src="../../assets/images/sprayground-activity-sign.png")
-        aside.col-md-3.col-md-offset-9
-          h3 Exmouth Sprayground signage
-          p Illustrator
 
-       
-  .article-panel
-    .container
-      .row
-        .col-md-6.col-md-offset-2.margin-bottom-lg
-          h2 
-            | Exmouth Sprayground
-          p.client <span>Client:</span> Department of Parks and Wildlife, Western Australia.
-          p 
-        
-        
-        .section-sprayground
+  - var imgArray = ['../../assets/images/sprayground-activity-sign.png', '../../assets/images/sprayground-welcome-sign.png', '../../assets/images/tumbler-thorny-devil.png' ]
+  +section-article('illust-panel', imgArray, 'Exmouth Sprayground signage', 'Adobe Illustrator', 'Department of Parks and Wildlife, Western Australia', 'sprayground')
+
 
 
 

@@ -1,5 +1,4 @@
-@import "../sass/variables.scss";
-@import "../sass/mixins.scss";
+
 
 
 html { 
@@ -29,14 +28,22 @@ h1 span {
 h2 {
     font-size: 4.5rem;
     margin-bottom: 25px;
+    // style quote marks
     &.title-indent {
-        text-indent: -21px;
         span {
-            color: $grey-med-dark;
-            font-size: 3.5rem;
-            vertical-align: top;
-            margin: 0 3px;
+            display: none;
         }
+        @media (min-width: $screen-sm) {
+            text-indent: -21px;
+            span {
+                color: $grey-med-dark;
+                font-size: 3.5rem;
+                vertical-align: top;
+                margin: 0 3px;
+                display: inline;
+            }
+        }
+        
     }
 }
 
