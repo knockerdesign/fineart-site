@@ -27,3 +27,6 @@ $margin-map: (
 'md'					: $margin-md,
 'lg'					: $margin-lg
 );
+
+//my small images are set at 500px width. So I want them to resize by % under a certain screen size
+$img-screen-break		: 530px;

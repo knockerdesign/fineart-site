@@ -42,12 +42,32 @@ body {
 @include section-break('section-sydney', #b0ac61, #7ba5c2, #727e81);
 @include section-break('section-yvonne', #955634, #82ca99, #efcea8);
 @include section-break('section-sprayground', #b0d233, #35bbdd, #90939d);
+@include section-break('section-runaway-dragon', #bf4132, #cada78, #716eb3);
+@include section-break('section-trains', #cbb902, #b67000, #53566a);
 
 
 
 
 img {
-    width: 100%;
+    width: 96%;
     height: auto;
+    margin: 0 2%;
+    display: block;
+    &.large {
+        &:hover {
+            cursor: auto;
+        }
+    }
+    &:hover {
+        cursor: zoom-in;
+    }
+    @media all and (min-width: $img-screen-break) {
+        width: auto;
+        margin: 0 auto;
+        &.large {
+            width: 100%;
+        }
+
+    }
 }
 

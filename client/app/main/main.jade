@@ -1,10 +1,13 @@
-mixin section-article(panelType, imgUrls, title, media, client, colorStrip)
+//- web faction, web slice, digital ocean hosting
+
+
+mixin section-article(panelType, imgUrls, lrgImgAttr, title, media, client, colorStrip)
   div(class="#{ panelType }")  
 
     .container
       .row
         each val in imgUrls
-          img/(src="#{ val }" class="margin-bottom-lg")
+          img/(src="#{ val }" large-img="#{ lrgImgAttr }" class="margin-bottom-lg")
         aside.col-md-3.col-md-offset-9
           h3 #{ title }
           p #{ media }
@@ -53,12 +56,23 @@ header.navbar
             p: a(href='http://www.waca.com.au/other/news_detail.php?ID=2302' target='_blank') Read about the dedication ceremony
 
          
-
+  // Variables passed are: panelType imgUrls (an array), large img url, title, media, client, colorStrip
+  - var imgArray = ['../../assets/images/runaway-dragon.jpg']
+  +section-article('art-panel', imgArray, 'runaway-dragon-lrg.jpg', 'Run away Dragon', 'Acrylics on board', 'Personal', 'runaway-dragon')
+    p I'm part of the article
+    p I'm also part of the story
+    p yeah whatever...     
 
 
   // Variables passed are: panelType imgUrls (an array), title, media, client, colorStrip
-  - var imgArray = ['../../assets/images/sydney-1200.png']
-  +section-article('art-panel', imgArray, 'Farewell Sydney', 'Oil on canvas', 'West Australian Cricket Association', 'sydney')
+  - var imgArray = ['../../assets/images/trains.jpg']
+  +section-article('art-panel', imgArray, 'trains-lrg.jpg', 'Train study', 'Oils on canvas', 'Personal', 'trains')
+    p Inspired from a scene near the start of the movie "Unstoppable".
+
+
+  // Variables passed are: panelType imgUrls (an array), title, media, client, colorStrip
+  - var imgArray = ['../../assets/images/sydney-ii.jpg']
+  +section-article('art-panel', imgArray, 'sydney-ii-lrg.jpg', 'Farewell Sydney', 'Oil on canvas', 'West Australian Cricket Association', 'sydney')
     p HMAS Sydney II departs Fremantle inner harbour.
     p The painting was commissioned by the West Australian Cricket Association (WACA) to form part of their HMAS Sydney II Commemorative Display.
     p This work required a great deal of research to recreate the scene, as accuracy was of the upmost importance for the client. I drilled down into details such as time of day, official weather report, ships alongside, colour schemes of port buildings and even if a woman could have access to North Mole during wartime.
@@ -67,20 +81,20 @@ header.navbar
 
 
   - var imgArray = ['http://www.vetprofessionals.com/catprofessional/images/home-cat.jpg', 'http://www.vetprofessionals.com/catprofessional/images/home-cat.jpg']
-  +section-article('art-panel', imgArray, 'Super cats', 'Photography', 'Personal', 'sydney')
+  +section-article('art-panel', imgArray, 'runaway-dragon-lrg.jpg', 'Super cats', 'Photography', 'Personal', 'sydney')
     p I'm part of the article
     p I'm also part of the story
     p yeah whatever...
 
 
-  - var imgArray = ['../../assets/images/yvonne.png']
-  +section-article('art-panel', imgArray, 'Yvonne', 'Oil on canvas', 'Private commission', 'yvonne')
+  - var imgArray = ['../../assets/images/yvonne.jpg']
+  +section-article('art-panel', imgArray, 'yvonne-lrg.jpg', 'Yvonne', 'Oil on canvas', 'Private commission', 'yvonne')
     p.client <span>Client:</span> Private commission.
     p Details here.
 
 
-  - var imgArray = ['../../assets/images/sprayground-activity-sign.png', '../../assets/images/sprayground-welcome-sign.png', '../../assets/images/tumbler-thorny-devil.png' ]
-  +section-article('illust-panel', imgArray, 'Exmouth Sprayground signage', 'Adobe Illustrator', 'Department of Parks and Wildlife, Western Australia', 'sprayground')
+  - var imgArray = ['../../assets/images/sprayground-activity-sign.jpg', '../../assets/images/sprayground-welcome-sign.jpg', '../../assets/images/tumbler-thorny-devil.jpg' ]
+  +section-article('illust-panel', imgArray, 'runaway-dragon-lrg.jpg', 'Exmouth Sprayground signage', 'Adobe Illustrator', 'Department of Parks and Wildlife, Western Australia', 'sprayground')
 
 
 
@@ -91,3 +105,27 @@ header.navbar
 
 
 footer
+
+
+
+script.
+  $( document ).ready(function() {
+    
+    //view larger images
+    $( "img" ).on({'click': function(){
+      //grab the src
+      var myUrl = $(this).attr('src');
+      //grab the large image file name
+      var urlSnippet = $(this).attr('large-img');
+      //split the url
+      var myArray = myUrl.split( '/' );
+      //delete the last item: the file name
+      myArray.pop();
+      //add the new file name
+      myArray.push(urlSnippet);
+      //join it all back up
+      var newUrl = myArray.join('/');    
+      
+      $(this).attr("src",newUrl).addClass('large');
+    }});
+  });
